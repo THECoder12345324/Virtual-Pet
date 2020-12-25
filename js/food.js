@@ -2,7 +2,7 @@ class Food {
     constructor () {
         this.foodStock = foodStock;
         this.lastFed;
-        this.image = loadImage("Milk.png");
+        this.image = loadImage("img/Milk.png");
     }
     getFoodStock() {
         database = firebase.database();
@@ -33,6 +33,22 @@ class Food {
             foodS -= 1;
         }
     }
+
+    bedroom() {
+        background(bedroomImg)
+    }
+
+    garden() {
+        background(gardenImg);
+        fill("black");
+        textSize(35);
+        text("" + dogname + " is Playing Right Now, Come back Later", 100, 50);
+    }
+
+    washroom() {
+        background(washroomImg);
+    }
+
     display() {
         var x = 80, y = 100;
 
