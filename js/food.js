@@ -11,8 +11,8 @@ class Food {
             foodS = data.val();
         });
     }
-    updateFoodStock(x) {
-        if (x <= 0) {
+    updateFoodStock(foodstock) {
+        /*if (x <= 0) {
             x = 0
           }
         if (x > 0) {
@@ -22,25 +22,30 @@ class Food {
         
         database.ref('/').update({
             Food: x
+        })*/
+        foodS = foodstock;
+        database.ref('/').update({
+            Food:foodS
         })
     }
     deductFood() {
-        foodS -= 1;
-        this.updateFoodStock(foodS);
+        if (foodS > 0) {
+            foodS -= 1;
+        }
     }
     display() {
         var x = 80, y = 100;
 
         imageMode(CENTER);
-        image(this.image, 720, 220, 70, 70);
+        //image(this.image, 720, 220, 70, 70);
 
-        if (this.FoodStock != 0) {
-            for (var i = 0; i < this.foodStock; i++) {
+        if (foodS != 0) {
+            for (var i = 0; i < foodS; i++) {
                 if (i%10===0) {
                     x = 80;
                     y += 50;
                 }
-                image(this.image, x, y, 50, 50)
+                this.milkbottle = image(this.image, x, y, 50, 50)
                 x += 30;
             }
         }

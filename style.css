@@ -7,3 +7,9 @@ canvas{
   display: block;
   margin: auto
 }
+button {
+  border-radius: 30px;
+}
+button:hover {
+  transform: scale(1.5) perspective(1px);
+}
